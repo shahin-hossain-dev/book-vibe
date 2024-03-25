@@ -5,8 +5,10 @@ import { Outlet } from "react-router-dom";
 const Root = () => {
   return (
     <div>
-      <Navbar />
-      <Outlet />
+      <div className="w-[95%] lg:w-10/12 mx-auto font-base">
+        <Navbar />
+        <Outlet />
+      </div>
     </div>
   );
 };
