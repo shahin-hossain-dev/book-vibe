@@ -1,5 +1,5 @@
-const getBooksFromLocalDB = () => {
-  const storedBooks = localStorage.getItem("books");
+const getBooksFromLocalDB = (prop) => {
+  const storedBooks = localStorage.getItem(prop);
 
   if (storedBooks) {
     return JSON.parse(storedBooks);
@@ -7,12 +7,12 @@ const getBooksFromLocalDB = () => {
   return [];
 };
 
-const setBookToLocalDB = (id) => {
-  const storedBooks = getBooksFromLocalDB();
+const setBookToLocalDB = (id, prop) => {
+  const storedBooks = getBooksFromLocalDB(prop);
   const exist = storedBooks.find((bookId) => bookId === id);
   if (!exist) {
     storedBooks.push(id);
-    localStorage.setItem("books", JSON.stringify(storedBooks));
+    localStorage.setItem(prop, JSON.stringify(storedBooks));
   }
 };
 

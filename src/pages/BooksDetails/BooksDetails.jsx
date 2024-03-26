@@ -1,9 +1,13 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { getBooksFromLocalDB, setBookToLocalDB } from "../../utils/localDB";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BooksDetails = () => {
   const books = useLoaderData();
   const { id } = useParams();
+
   const book = books.find((book) => book.bookId === parseInt(id));
 
   const {
@@ -20,10 +24,40 @@ const BooksDetails = () => {
     rating,
   } = book;
 
+  const handleReadList = () => {
+    // read DB
+    const readBooks = getBooksFromLocalDB("read");
+    const exist = readBooks.find((id) => parseInt(id) === bookId);
+
+    if (exist) {
+      toast.error("Book has already read");
+    } else {
+      setBookToLocalDB(id, "read");
+      toast.success("added to read book");
+    }
+  };
+
+  const handleWishlist = () => {
+    // read DB
+    const readBooks = getBooksFromLocalDB("read");
+    const bookExist = readBooks.find((id) => parseInt(id) === bookId);
+    // wishlist DB
+    const wishlistBooks = getBooksFromLocalDB("wishlist");
+    const wishlistExist = wishlistBooks.find((id) => parseInt(id) === bookId);
+
+    if (bookExist) {
+      toast.error("Book has already read");
+    } else if (wishlistExist) {
+      toast.error("Book already exist in wishlist");
+    } else {
+      setBookToLocalDB(id, "wishlist");
+      toast.success("Added to wishlist");
+    }
+  };
   return (
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 mb-24">
       <div className="lg:ms-10 bg-[#F3F3F3] rounded-2xl p-12 flex justify-center items-center">
-        <img className="lg:h-[500px] lg:w-[400px]" src={image} alt="" />
+        <img className="lg:h-[500px] lg:w-[400px]" src={image} alt="book" />
       </div>
       <div className="space-y-6">
         <h2 className="text-4xl font-bold">{bookName}</h2>
@@ -64,14 +98,21 @@ const BooksDetails = () => {
           </div>
         </div>
         <div>
-          <button className="btn me-3 border text-lg border-[#50B1C9] text-[#50B1C9]">
+          <button
+            onClick={handleReadList}
+            className="btn me-3 border text-lg border-[#50B1C9] text-[#50B1C9]"
+          >
             Read
           </button>
-          <button className=" btn  bg-[#50B1C9] text-lg text-white hover:text-[#50B1C9]">
+          <button
+            onClick={handleWishlist}
+            className=" btn  bg-[#50B1C9] text-lg text-white hover:text-[#50B1C9]"
+          >
             Wishlist
           </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

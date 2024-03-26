@@ -2,7 +2,19 @@ import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { FaChevronDown } from "react-icons/fa";
+import { useLoaderData } from "react-router-dom";
+import { getBooksFromLocalDB } from "../../utils/localDB";
+import ReadBook from "../../components/ReadBook/ReadBook";
+
 const ListedBooks = () => {
+  const books = useLoaderData();
+
+  const readBooksDB = getBooksFromLocalDB("read");
+
+  const readBooks = books.filter((book) =>
+    readBooksDB.includes(book.bookId.toString())
+  );
+
   return (
     <div>
       <h2 className="text-center text-2xl lg:text-4xl font-bold bg-[#1313130D] p-8 rounded-2xl">
@@ -28,12 +40,19 @@ const ListedBooks = () => {
       <div className="mt-10">
         <Tabs>
           <TabList>
-            <Tab>Read Books</Tab>
-            <Tab>Wishlist Books</Tab>
+            <Tab>
+              <span className="font-semibold">Read Books</span>
+            </Tab>
+            <Tab>
+              <span className="font-semibold">Wishlist Books</span>
+            </Tab>
           </TabList>
-
           <TabPanel>
-            <h2>Any content 1</h2>
+            <div className="flex flex-col gap-10">
+              {readBooks.map((book) => (
+                <ReadBook key={book.bookId} book={book}></ReadBook>
+              ))}
+            </div>
           </TabPanel>
           <TabPanel>
             <h2>Any content 2</h2>
