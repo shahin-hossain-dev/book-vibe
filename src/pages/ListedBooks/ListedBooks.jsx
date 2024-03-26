@@ -48,7 +48,7 @@ const ListedBooks = () => {
             </Tab>
           </TabList>
           <TabPanel>
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-10 mt-10">
               {readBooks.map((book) => (
                 <ReadBook key={book.bookId} book={book}></ReadBook>
               ))}
