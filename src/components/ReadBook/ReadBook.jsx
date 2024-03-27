@@ -43,9 +43,9 @@ const ReadBook = ({ book }) => {
               <div className="flex items-center">
                 <span className="flex items-center gap-2 ">
                   <IoLocationOutline className="text-xl" />
-                  <span>Year of publishing : </span>
+                  <span className="me-2">Year of publishing : </span>
                 </span>
-                <span>{yearOfPublishing}</span>
+                <span> {yearOfPublishing}</span>
               </div>
             </div>
           </div>

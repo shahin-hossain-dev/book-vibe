@@ -35,12 +35,6 @@ const PagesToRead = () => {
     Z`;
   };
 
-  const data = [
-    {
-      name: "Page A",
-      uv: 4000,
-    },
-  ];
   const TriangleBar = (props) => {
     const { fill, x, y, width, height } = props;
 
@@ -67,7 +61,7 @@ const PagesToRead = () => {
             shape={<TriangleBar />}
             label={{ position: "top" }}
           >
-            {data.map((entry, index) => (
+            {readBooks.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={colors[index % 20]} />
             ))}
           </Bar>
