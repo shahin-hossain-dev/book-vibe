@@ -7,12 +7,13 @@ import Home from "./pages/Home/Home.jsx";
 import PagesToRead from "./pages/PagesToRead/PagesToRead.jsx";
 import ListedBooks from "./pages/ListedBooks/ListedBooks.jsx";
 import BooksDetails from "./pages/BooksDetails/BooksDetails.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <h2>Page Not Found</h2>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
