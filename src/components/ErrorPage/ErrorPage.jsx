@@ -8,7 +8,7 @@ const ErrorPage = () => {
     navigate("/");
   };
   return (
-    <div className="flex gap-10 min-h-screen justify-center items-center">
+    <div className="flex flex-col lg:flex-row gap-10 min-h-screen justify-center items-center">
       <button
         className="btn bg-[#59C6D2] text-white px-6"
         onClick={handleNavigate}
