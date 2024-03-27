@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { getBooksFromLocalDB, setBookToLocalDB } from "../../utils/localDB";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,6 +9,7 @@ const BooksDetails = () => {
   const { id } = useParams();
 
   const book = books.find((book) => book.bookId === parseInt(id));
+  console.log(book);
 
   const {
     bookId,

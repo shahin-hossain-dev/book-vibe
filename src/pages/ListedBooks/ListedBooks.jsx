@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { FaChevronDown } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
 import { getBooksFromLocalDB } from "../../utils/localDB";
 import ReadBook from "../../components/ReadBook/ReadBook";
 
 const ListedBooks = () => {
-  const books = useLoaderData();
+  // const books = useLoaderData();
+  const [books, setBooks] = useState([]);
+  const [readBooks, setReadBooks] = useState([]);
 
-  const readBooksDB = getBooksFromLocalDB("read");
+  useEffect(() => {
+    fetch("books.json")
+      .then((res) => res.json())
+      .then((data) => setBooks(data));
+  }, []);
 
-  const readBooks = books.filter((book) =>
-    readBooksDB.includes(book.bookId.toString())
-  );
+  useEffect(() => {
+    const readBooksDB = getBooksFromLocalDB("read");
 
+    if (books.length > 0) {
+      const readBooksMatched = books.filter((book) =>
+        readBooksDB.includes(book.bookId.toString())
+      );
+      setReadBooks(readBooksMatched);
+    }
+  }, [books]);
   return (
     <div>
       <h2 className="text-center text-2xl lg:text-4xl font-bold bg-[#1313130D] p-8 rounded-2xl">

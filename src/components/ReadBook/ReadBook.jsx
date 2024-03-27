@@ -2,6 +2,7 @@ import React from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoPeopleOutline } from "react-icons/io5";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 const ReadBook = ({ book }) => {
   const {
     bookId,
@@ -23,7 +24,7 @@ const ReadBook = ({ book }) => {
           <img src={image} alt="Book" />
         </div>
         {/* card body */}
-        <div className="card-body space-y-2">
+        <div className="card-body py-0 space-y-2">
           <h2 className="card-title">{bookName}</h2>
           <p>By : {author}</p>
           <div className="flex flex-col lg:flex-row lg:items-center gap-3">
@@ -72,9 +73,11 @@ const ReadBook = ({ book }) => {
             <span className="py-2 px-3 rounded-2xl bg-[#FFAC3326] text-[#FFAC33]">
               Rating: {rating}
             </span>
-            <span className="py-2 px-3 rounded-2xl bg-[#23BE0A] text-white">
-              Category: {category}
-            </span>
+            <Link to={`/book-details/${bookId}`}>
+              <button className="btn bg-[#23BE0A] text-white">
+                View Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>
