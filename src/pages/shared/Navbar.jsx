@@ -6,7 +6,7 @@ import { IoClose } from "react-icons/io5";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
-    <div className="navbar bg-base-100 py-12">
+    <div className="navbar bg-base-100 py-6 lg:py-12">
       <div className="navbar-start">
         <p className=" font-semibold text-3xl">Book Vibe</p>
       </div>
