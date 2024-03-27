@@ -4,11 +4,13 @@ import "react-tabs/style/react-tabs.css";
 import { FaChevronDown } from "react-icons/fa";
 import { getBooksFromLocalDB } from "../../utils/localDB";
 import ReadBook from "../../components/ReadBook/ReadBook";
+import WishlistBook from "../../components/WishlistBook/WishlistBook";
 
 const ListedBooks = () => {
   // const books = useLoaderData();
   const [books, setBooks] = useState([]);
   const [readBooks, setReadBooks] = useState([]);
+  const [wishlistBooks, setWishlistBooks] = useState([]);
 
   useEffect(() => {
     fetch("books.json")
@@ -18,12 +20,18 @@ const ListedBooks = () => {
 
   useEffect(() => {
     const readBooksDB = getBooksFromLocalDB("read");
+    const wishlistDB = getBooksFromLocalDB("wishlist");
 
     if (books.length > 0) {
       const readBooksMatched = books.filter((book) =>
         readBooksDB.includes(book.bookId.toString())
       );
       setReadBooks(readBooksMatched);
+
+      const wishlistMatched = books.filter((book) =>
+        wishlistDB.includes(book.bookId.toString())
+      );
+      setWishlistBooks(wishlistMatched);
     }
   }, [books]);
   return (
@@ -66,7 +74,9 @@ const ListedBooks = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 2</h2>
+            {wishlistBooks.map((book) => (
+              <WishlistBook key={book.bookId} book={book}></WishlistBook>
+            ))}
           </TabPanel>
         </Tabs>
       </div>
