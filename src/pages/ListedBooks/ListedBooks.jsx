@@ -34,6 +34,21 @@ const ListedBooks = () => {
       setWishlistBooks(wishlistMatched);
     }
   }, [books]);
+
+  const handleRatingSort = () => {
+    const sortBook = readBooks.sort((a, b) => b.rating - a.rating);
+    setBooks(sortBook);
+  };
+  const handleNumberOfPagesSort = () => {
+    const sortBook = readBooks.sort((a, b) => b.totalPages - a.totalPages);
+    setBooks(sortBook);
+  };
+  const handlePublishYearSort = () => {
+    const sortBook = readBooks.sort(
+      (a, b) => b.yearOfPublishing - a.yearOfPublishing
+    );
+    setBooks(sortBook);
+  };
   return (
     <div>
       <h2 className="text-center text-2xl lg:text-4xl font-bold bg-[#1313130D] p-8 rounded-2xl">
@@ -48,10 +63,13 @@ const ListedBooks = () => {
 
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
             <li>
-              <a>Item 1</a>
+              <button onClick={handleRatingSort}>Rating</button>
             </li>
             <li>
-              <a>Item 2</a>
+              <button onClick={handleNumberOfPagesSort}>Number of Pages</button>
+            </li>
+            <li>
+              <button onClick={handlePublishYearSort}>Publish Year</button>
             </li>
           </ul>
         </details>

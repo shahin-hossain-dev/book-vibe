@@ -8,6 +8,8 @@ import PagesToRead from "./pages/PagesToRead/PagesToRead.jsx";
 import ListedBooks from "./pages/ListedBooks/ListedBooks.jsx";
 import BooksDetails from "./pages/BooksDetails/BooksDetails.jsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
+import Blogs from "./pages/Blogs/Blogs.jsx";
+import TopBooks from "./pages/TopBooks/TopBooks.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,16 @@ const router = createBrowserRouter([
         path: "/book-details/:id",
         element: <BooksDetails />,
         loader: () => fetch("/books.json"),
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
+        loader: () => fetch("/blogs.json"),
+      },
+      {
+        path: "/top-books",
+        element: <TopBooks />,
+        loader: () => fetch("/blogs.json"),
       },
     ],
   },

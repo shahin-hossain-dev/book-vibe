@@ -19,6 +19,12 @@ const Navbar = () => {
           <li>
             <ActiveLink to={"/pages-to-read"}>Page to Read</ActiveLink>
           </li>
+          <li>
+            <ActiveLink to={"/blogs"}>Blogs</ActiveLink>
+          </li>
+          <li>
+            <ActiveLink to={"/top-books"}>Top Books</ActiveLink>
+          </li>
         </ul>
       </div>
       <div className="navbar-end hidden md:flex">
