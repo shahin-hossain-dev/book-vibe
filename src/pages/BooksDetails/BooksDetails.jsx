@@ -24,7 +24,7 @@ const BooksDetails = () => {
     yearOfPublishing,
     rating,
   } = book;
-
+  // handle read list
   const handleReadList = () => {
     // read DB
     const readBooks = getBooksFromLocalDB("read");
@@ -37,7 +37,7 @@ const BooksDetails = () => {
       toast.success("Added book to read");
     }
   };
-
+  // handle wishlist
   const handleWishlist = () => {
     // read DB
     const readBooks = getBooksFromLocalDB("read");

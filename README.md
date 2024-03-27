@@ -1,8 +1,14 @@
-# React + Vite
+# Book Vibe Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a book club web app. Read books and raise your knowledge.
 
-Currently, two official plugins are available:
+- [Book Vibe Live](https://book-vibe-advanced.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Here is the most important key features is this app.
+
+- This is a single page application.
+- Using dynamic routes to easily navigate to book details page.
+- Using Read Book & Wishlist book tabs for easily knowing which book is already been read or not Read.
+- Here is used books chart for knowing how many book you have finished, how many pages was this books.
+- Here has a blog page for expand your knowledge and take motivation.
+- Here is using Top Books page, You could start most read top 5 books from top book page.
