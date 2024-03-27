@@ -42,18 +42,21 @@ const PagesToRead = () => {
   };
   return (
     <div>
-      <ResponsiveContainer width="100%" height={400}>
+      <ResponsiveContainer width="100%" height={600}>
         <BarChart
           data={readBooks}
           margin={{
             top: 20,
             right: 30,
             left: 20,
-            bottom: 5,
+            bottom: 200,
+          }}
+          style={{
+            fontSize: "12px",
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="bookName" />
+          <XAxis dataKey="bookName" angle={-90} textAnchor="end" />
           <YAxis />
           <Bar
             dataKey="totalPages"

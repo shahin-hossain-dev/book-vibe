@@ -35,6 +35,8 @@ const ListedBooks = () => {
     }
   }, [books]);
 
+  // handle sorting
+
   const handleRatingSort = () => {
     const sortBook = readBooks.sort((a, b) => b.rating - a.rating);
     setBooks(sortBook);

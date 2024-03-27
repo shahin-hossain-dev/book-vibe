@@ -16,4 +16,10 @@ const setBookToLocalDB = (id, prop) => {
   }
 };
 
-export { getBooksFromLocalDB, setBookToLocalDB };
+const removeBookToLocalDB = (id, prop) => {
+  const storedBooks = getBooksFromLocalDB(prop);
+  const newBooks = storedBooks.filter((bookId) => bookId !== id);
+  localStorage.setItem(prop, JSON.stringify(newBooks));
+};
+
+export { getBooksFromLocalDB, setBookToLocalDB, removeBookToLocalDB };

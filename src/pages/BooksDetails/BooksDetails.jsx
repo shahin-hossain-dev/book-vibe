@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
-import { getBooksFromLocalDB, setBookToLocalDB } from "../../utils/localDB";
+import {
+  getBooksFromLocalDB,
+  removeBookToLocalDB,
+  setBookToLocalDB,
+} from "../../utils/localDB";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -34,9 +38,11 @@ const BooksDetails = () => {
       toast.error("It's already been added");
     } else {
       setBookToLocalDB(id, "read");
+      removeBookToLocalDB(id, "wishlist");
       toast.success("Added book to read");
     }
   };
+
   // handle wishlist
   const handleWishlist = () => {
     // read DB
@@ -99,12 +105,14 @@ const BooksDetails = () => {
           </div>
         </div>
         <div>
+          {/* handle read list */}
           <button
             onClick={handleReadList}
             className="btn me-3 border text-lg border-[#50B1C9] text-[#50B1C9]"
           >
             Read
           </button>
+          {/* handle wishlist */}
           <button
             onClick={handleWishlist}
             className=" btn  bg-[#50B1C9] text-lg text-white hover:text-[#50B1C9]"
