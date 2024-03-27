@@ -78,23 +78,41 @@ const ListedBooks = () => {
         <Tabs>
           <TabList>
             <Tab>
-              <span className="font-semibold">Read Books</span>
+              <span className="font-semibold">
+                Read Books{" "}
+                <span className="text-[#23BE0A]">
+                  {readBooks.length > 0 && readBooks.length}
+                </span>
+              </span>
             </Tab>
             <Tab>
-              <span className="font-semibold">Wishlist Books</span>
+              <span className="font-semibold">
+                Wishlist Books{" "}
+                <span className="text-[#23BE0A]">
+                  {wishlistBooks.length > 0 && wishlistBooks.length}
+                </span>
+              </span>
             </Tab>
           </TabList>
           <TabPanel>
             <div className="flex flex-col gap-10 mt-10">
+              <span className="text-2xl text-[#13131399]">
+                {readBooks.length === 0 && "No Books Here"}
+              </span>
               {readBooks.map((book) => (
                 <ReadBook key={book.bookId} book={book}></ReadBook>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
-            {wishlistBooks.map((book) => (
-              <WishlistBook key={book.bookId} book={book}></WishlistBook>
-            ))}
+            <div className="flex flex-col gap-10 mt-10">
+              <span className="text-2xl text-[#13131399]">
+                {wishlistBooks.length === 0 && "No Books Here"}
+              </span>
+              {wishlistBooks.map((book) => (
+                <WishlistBook key={book.bookId} book={book}></WishlistBook>
+              ))}
+            </div>
           </TabPanel>
         </Tabs>
       </div>
