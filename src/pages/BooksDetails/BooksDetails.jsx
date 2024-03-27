@@ -31,10 +31,10 @@ const BooksDetails = () => {
     const exist = readBooks.find((id) => parseInt(id) === bookId);
 
     if (exist) {
-      toast.error("Book has already read");
+      toast.error("It's already been added");
     } else {
       setBookToLocalDB(id, "read");
-      toast.success("added to read book");
+      toast.success("Added book to read");
     }
   };
 
@@ -47,9 +47,9 @@ const BooksDetails = () => {
     const wishlistExist = wishlistBooks.find((id) => parseInt(id) === bookId);
 
     if (bookExist) {
-      toast.error("Book has already read");
+      toast.error("It's already been read");
     } else if (wishlistExist) {
-      toast.error("Book already exist in wishlist");
+      toast.error("It's already been added");
     } else {
       setBookToLocalDB(id, "wishlist");
       toast.success("Added to wishlist");
