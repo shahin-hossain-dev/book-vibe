@@ -7,6 +7,7 @@ import {
 } from "../../utils/localDB";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const BooksDetails = () => {
   const books = useLoaderData();
@@ -63,6 +64,9 @@ const BooksDetails = () => {
   };
   return (
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 mb-24">
+      <Helmet>
+        <title>Book Vibe | Book Details</title>
+      </Helmet>
       <div className="lg:ms-10 bg-[#F3F3F3] rounded-2xl p-12 flex justify-center items-center">
         <img className="lg:h-[500px] lg:w-[400px]" src={image} alt="book" />
       </div>

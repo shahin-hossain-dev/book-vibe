@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import TopBook from "../../components/TopBook/TopBook";
+import { Helmet } from "react-helmet-async";
 
 const TopBooks = () => {
   const books = useLoaderData();
@@ -9,6 +10,9 @@ const TopBooks = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Book Vibe | Top Books</title>
+      </Helmet>
       <h2 className="text-center text-2xl lg:text-4xl font-bold bg-[#1313130D]  p-8 rounded-2xl">
         Top Books
       </h2>

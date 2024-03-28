@@ -1,12 +1,16 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Blog from "../../components/Blog/Blog";
+import { Helmet } from "react-helmet-async";
 
 const Blogs = () => {
   const blogs = useLoaderData();
 
   return (
     <div>
+      <Helmet>
+        <title>Book Vibe | Blogs</title>
+      </Helmet>
       <h2 className="text-center text-2xl lg:text-4xl font-bold bg-[#1313130D] p-8 rounded-2xl">
         Blogs
       </h2>

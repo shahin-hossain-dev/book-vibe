@@ -5,6 +5,7 @@ import { FaChevronDown } from "react-icons/fa";
 import { getBooksFromLocalDB } from "../../utils/localDB";
 import ReadBook from "../../components/ReadBook/ReadBook";
 import WishlistBook from "../../components/WishlistBook/WishlistBook";
+import { Helmet } from "react-helmet-async";
 
 const ListedBooks = () => {
   // const books = useLoaderData();
@@ -53,6 +54,9 @@ const ListedBooks = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Book Vibe | Listed Books</title>
+      </Helmet>
       <h2 className="text-center text-2xl lg:text-4xl font-bold bg-[#1313130D] p-8 rounded-2xl">
         Books
       </h2>

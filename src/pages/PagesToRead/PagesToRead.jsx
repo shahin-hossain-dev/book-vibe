@@ -10,6 +10,7 @@ import {
 } from "recharts";
 import { getBooksFromLocalDB } from "../../utils/localDB";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const PagesToRead = () => {
   const books = useLoaderData();
@@ -42,6 +43,9 @@ const PagesToRead = () => {
   };
   return (
     <div className="-ms-6 lg:ms-0">
+      <Helmet>
+        <title>Book Vibe | Page To Read</title>
+      </Helmet>
       <ResponsiveContainer width="100%" height={500}>
         <BarChart
           data={readBooks}
