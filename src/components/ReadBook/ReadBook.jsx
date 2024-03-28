@@ -19,22 +19,22 @@ const ReadBook = ({ book }) => {
   } = book;
   return (
     <div>
-      <div className="card flex-col lg:flex-row items-center card-side bg-base-100 shadow-xl border p-6">
+      <div className="card flex-col lg:flex-row card-side bg-base-100 shadow-xl border p-6">
         <div className="bg-[#1313130D] rounded-2xl py-8 px-6 lg:w-[230px] flex justify-center items-center">
           <img src={image} alt="Book" />
         </div>
         {/* card body */}
-        <div className="lg:ms-5 px-2 space-y-2">
+        <div className="lg:ms-5 px-2 mt-4 space-y-2">
           <h2 className="card-title">{bookName}</h2>
           <p>By : {author}</p>
           <div className="flex flex-col lg:flex-row lg:items-center gap-3">
             <div className="flex items-center">
-              <span className="font-bold">Tags: </span>
-              <div className="flex flex-wrap">
+              <span className="font-bold me-2">Tags: </span>
+              <div className="flex gap-2 flex-wrap">
                 {tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="p-2 me-3 font-medium rounded-xl text-[#23BE0A] bg-[#23BE0A0D]"
+                    className="px-2 py-1 font-medium rounded-xl text-[#23BE0A] bg-[#23BE0A0D]"
                   >
                     #{tag}
                   </span>

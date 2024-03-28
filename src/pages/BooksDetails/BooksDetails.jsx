@@ -66,7 +66,7 @@ const BooksDetails = () => {
       <div className="lg:ms-10 bg-[#F3F3F3] rounded-2xl p-12 flex justify-center items-center">
         <img className="lg:h-[500px] lg:w-[400px]" src={image} alt="book" />
       </div>
-      <div className="space-y-6">
+      <div className="space-y-6 px-3 lg:px-0">
         <h2 className="text-4xl font-bold">{bookName}</h2>
         <p className="text-xl font-medium">By: {author}</p>
         <p className="text-xl font-medium">{category}</p>

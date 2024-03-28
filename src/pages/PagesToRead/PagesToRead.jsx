@@ -41,7 +41,7 @@ const PagesToRead = () => {
     return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
   };
   return (
-    <div>
+    <div className="-ms-6 lg:ms-0">
       <ResponsiveContainer width="100%" height={500}>
         <BarChart
           data={readBooks}
